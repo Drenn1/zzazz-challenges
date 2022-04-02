@@ -2,12 +2,9 @@ import serial, binascii, sys, time, struct, os, socket
 from datetime import datetime
 from server import *
 
-# Constants
-STATE_UNKNOWN = 0
-STATE_LOGGING = 1
+MAP_TO_SPOOF = -1
 
-MAP_TO_SPOOF = -1 # 0x37130000
-
+CMD_NONE = 0x00
 CMD_LOAD_MAP = 0x02
 
 # Config
@@ -15,8 +12,7 @@ VERBOSE = False
 
 
 # Variables
-currentState = STATE_UNKNOWN
-currentCmd = -1
+currentCmd = CMD_NONE
 
 mapHandshake = [0xff1550be,0x1550beff,0x15000f00,0x37132220,0x00000000,0x02000000]
 handshakeIndex = 0
@@ -65,21 +61,25 @@ def handleRecv(resp):
             print('RECV: ' + binascii.hexlify(resp[0:4]).decode())
         param = struct.unpack('>I', resp[0:4])[0]
 
-        if currentState == STATE_UNKNOWN:
-            if param == mapHandshake[0]:
-                currentState = STATE_LOGGING
-                handshakeIndex = 1
-        elif currentState == STATE_LOGGING:
-            if handshakeIndex == 3:
+        if currentCmd == CMD_NONE:
+            if handshakeIndex >= 2:
                 currentCmd = resp[0]
-            if currentCmd == CMD_LOAD_MAP and handshakeIndex == 5:
+                if currentCmd != CMD_NONE:
+                    print('CMD ' + hex(currentCmd))
+                    handshakeIndex = 1
+            elif param == mapHandshake[handshakeIndex]:
+                handshakeIndex += 1
+            else:
+                handshakeIndex = 0
+        else:
+            if currentCmd == CMD_LOAD_MAP and handshakeIndex == 2:
                 # Modify the map we're moving to
                 if MAP_TO_SPOOF == -1:
                     print('LOADING MAP: ' + myhex(mapIDFromMapDword(param), 4) + ' POS: ' + myhex(param & 0xffff, 4))
                     loadingMapDword = param
                 else:
                     print('SPOOFING TO MAP: ' + myhex(MAP_TO_SPOOF, 4) + ' POS: ' + myhex(param & 0xffff, 4))
-                    resp = binascii.unhexlify(myhex(MAP_TO_SPOOF, 4))
+                    resp = bytearray([MAP_TO_SPOOF & 0xff, MAP_TO_SPOOF >> 8])
                     resp.extend(binascii.unhexlify(myhex(param & 0xffff, 4)))
                     loadingMapDword = -1 # Don't save log for faked traffic
                     MAP_TO_SPOOF = -1
@@ -115,7 +115,7 @@ def handleRecv(resp):
                         f.write('TIME: ' + str(datetime.now()) + '\n\n')
                         f.write(logString)
                         f.close()
-                        currentState = STATE_UNKNOWN
+                        currentCmd = CMD_NONE
                         logString = ''
             else:
                 numZeroPacketsReceived = 0
