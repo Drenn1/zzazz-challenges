@@ -43,7 +43,7 @@ def runServer(handleSend, handleRecv):
 
     while True:
         data = data_conn.recv(5)
-        clock_conn.recv(4)
+        clock_conn.recv(4) # Ignore the clock data
 
         serial_device.write(handleSend(data))
         cmd = readFromSerial()
