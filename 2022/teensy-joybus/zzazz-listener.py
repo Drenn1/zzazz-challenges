@@ -1,6 +1,9 @@
 import serial, binascii, sys, time, struct, os, socket
 from datetime import datetime
-from server import *
+
+# Pick one of these
+from emu_server import *
+#from teensy_server import *
 
 MAP_TO_SPOOF = -1
 
