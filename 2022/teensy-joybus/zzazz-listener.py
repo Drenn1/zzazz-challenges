@@ -81,12 +81,13 @@ def handleRecv(resp):
                     print('SPOOFING TO MAP: ' + myhex(MAP_TO_SPOOF, 4) + ' POS: ' + myhex(param & 0xffff, 4))
                     resp = bytearray([MAP_TO_SPOOF & 0xff, MAP_TO_SPOOF >> 8])
                     resp.extend(binascii.unhexlify(myhex(param & 0xffff, 4)))
+                    resp.extend(bytes([0x18]))
                     loadingMapDword = -1 # Don't save log for faked traffic
                     MAP_TO_SPOOF = -1
 
             handshakeIndex += 1
 
-            if param == 0:
+            if resp[4] == 0: # Last byte is "link status byte"; 0 when doing nothing?
                 numZeroPacketsReceived += 1
                 if numZeroPacketsReceived >= 10:
                     destFilename = ''
@@ -116,12 +117,13 @@ def handleRecv(resp):
                         f.write(logString)
                         f.close()
                         currentCmd = CMD_NONE
+                        handshakeIndex = 0
                         logString = ''
             else:
                 numZeroPacketsReceived = 0
 
         if not (logString == '' and param == 0):
-            logRecv(resp)
+            logRecv(resp[0:4])
     return resp
 
 
