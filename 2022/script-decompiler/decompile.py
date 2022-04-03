@@ -77,11 +77,11 @@ def decodeScript(scriptData, baseAddr):
         elif cmd == 0x11:
             val = nextByte()
             ptr = nextWord()
-            writeLine('setptr', myhex(ptr, 8) + ' = ' + myhex(val, 2))
+            writeLine('setptr', '[' + myhex(ptr, 8) + '] = ' + myhex(val, 2))
         elif cmd == 0x12:
             index = nextByte()
             val = nextWord()
-            writeLine('loadbytefromptr', printIndex(index) + ' = ' + printIndex(val))
+            writeLine('loadbytefromptr', printIndex(index) + ' = [' + myhex(val, 8) + ']')
         elif cmd == 0x13:
             index = nextByte()
             addr = nextWord()

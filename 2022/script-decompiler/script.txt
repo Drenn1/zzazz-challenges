@@ -4,6 +4,8 @@
 0x20182c2: call                       0201835e
 0x20182c7: compare_var_to_value       [800d] == 0000
 0x20182cc: goto_if                    COND:2, 020182f3
+
+// CORRECT password
 0x20182d2: loadword                   [data+00] = 020189b6
 0x20182d8: callstd                    04
 0x20182da: callnative                 02018233
@@ -13,34 +15,40 @@
 0x20182ec: callnative                 08089c35
 0x20182f1: release                    
 0x20182f2: end                        
+
+// INCORRECT password
 0x20182f3: loadword                   [data+00] = 020189f7
 0x20182f9: callstd                    04
 0x20182fb: release                    
 0x20182fc: end                        
-0x20182fd: setptr                     02021dc4 = ff
-0x2018303: setptr                     02021dc5 = ff
-0x2018309: setptr                     02021dc6 = ff
-0x201830f: setptr                     02021dc7 = ff
-0x2018315: setptr                     02021dc8 = ff
-0x201831b: setptr                     02021dc9 = ff
-0x2018321: setptr                     02021dca = ff
-0x2018327: setptr                     02021dcb = ff
-0x201832d: setptr                     02021dcc = ff
-0x2018333: setptr                     02021dcd = ff
-0x2018339: setptr                     02021dce = ff
-0x201833f: setptr                     02021dcf = ff
-0x2018345: setptr                     02021dd0 = ff
-0x201834b: setptr                     02021dd1 = ff
-0x2018351: setptr                     02021dd2 = ff
-0x2018357: setptr                     02021dd3 = ff
+
+
+0x20182fd: setptr                     [STRING_CHAR_00] = ff
+0x2018303: setptr                     [STRING_CHAR_01] = ff
+0x2018309: setptr                     [STRING_CHAR_02] = ff
+0x201830f: setptr                     [STRING_CHAR_03] = ff
+0x2018315: setptr                     [STRING_CHAR_04] = ff
+0x201831b: setptr                     [STRING_CHAR_05] = ff
+0x2018321: setptr                     [STRING_CHAR_06] = ff
+0x2018327: setptr                     [STRING_CHAR_07] = ff
+0x201832d: setptr                     [STRING_CHAR_08] = ff
+0x2018333: setptr                     [STRING_CHAR_09] = ff
+0x2018339: setptr                     [STRING_CHAR_0a] = ff
+0x201833f: setptr                     [STRING_CHAR_0b] = ff
+0x2018345: setptr                     [STRING_CHAR_0c] = ff
+0x201834b: setptr                     [STRING_CHAR_0d] = ff
+0x2018351: setptr                     [STRING_CHAR_0e] = ff
+0x2018357: setptr                     [STRING_CHAR_0f] = ff
 0x201835d: return                     
+
+
 0x201835e: setvar                     [8001] = 1b39
-0x2018363: loadbytefromptr            [data+00] = [data+2021dc4]
+0x2018363: loadbytefromptr            [data+00] = [STRING_CHAR_00]
 0x2018369: setptrbyte                 02018372 = [data+00]
 0x201836f: addvar                     [8001] += 0000
-0x2018374: loadbytefromptr            [data+00] = [data+20375da]
+0x2018374: loadbytefromptr            [data+00] = [020375da]
 0x201837a: setptrbyte                 02018399 = [data+00]
-0x2018380: loadbytefromptr            [data+00] = [data+20375db]
+0x2018380: loadbytefromptr            [data+00] = [020375db]
 0x2018386: setptrbyte                 0201839a = [data+00]
 0x201838c: setvar                     [8001] = 0000
 0x2018391: setvar                     [8002] = 0049
@@ -48,13 +56,14 @@
 0x201839b: subvar                     [8002] -= 0001
 0x20183a0: compare_var_to_value       [8002] == 0000
 0x20183a5: goto_if                    COND:2, 02018396
+
 0x20183ab: addvar                     [8001] += 18df
-0x20183b0: loadbytefromptr            [data+00] = [data+2021dc5]
+0x20183b0: loadbytefromptr            [data+00] = [STRING_CHAR_01]
 0x20183b6: setptrbyte                 020183bf = [data+00]
 0x20183bc: addvar                     [8001] += 0000
-0x20183c1: loadbytefromptr            [data+00] = [data+20375da]
+0x20183c1: loadbytefromptr            [data+00] = [020375da]
 0x20183c7: setptrbyte                 020183e6 = [data+00]
-0x20183cd: loadbytefromptr            [data+00] = [data+20375db]
+0x20183cd: loadbytefromptr            [data+00] = [020375db]
 0x20183d3: setptrbyte                 020183e7 = [data+00]
 0x20183d9: setvar                     [8001] = 0000
 0x20183de: setvar                     [8002] = 0061
@@ -62,13 +71,14 @@
 0x20183e8: subvar                     [8002] -= 0001
 0x20183ed: compare_var_to_value       [8002] == 0000
 0x20183f2: goto_if                    COND:2, 020183e3
+
 0x20183f8: addvar                     [8001] += 13eb
-0x20183fd: loadbytefromptr            [data+00] = [data+2021dc6]
+0x20183fd: loadbytefromptr            [data+00] = [STRING_CHAR_02]
 0x2018403: setptrbyte                 0201840c = [data+00]
 0x2018409: addvar                     [8001] += 0000
-0x201840e: loadbytefromptr            [data+00] = [data+20375da]
+0x201840e: loadbytefromptr            [data+00] = [020375da]
 0x2018414: setptrbyte                 02018433 = [data+00]
-0x201841a: loadbytefromptr            [data+00] = [data+20375db]
+0x201841a: loadbytefromptr            [data+00] = [020375db]
 0x2018420: setptrbyte                 02018434 = [data+00]
 0x2018426: setvar                     [8001] = 0000
 0x201842b: setvar                     [8002] = 000d
@@ -76,13 +86,14 @@
 0x2018435: subvar                     [8002] -= 0001
 0x201843a: compare_var_to_value       [8002] == 0000
 0x201843f: goto_if                    COND:2, 02018430
+
 0x2018445: addvar                     [8001] += 11ef
-0x201844a: loadbytefromptr            [data+00] = [data+2021dc7]
+0x201844a: loadbytefromptr            [data+00] = [STRING_CHAR_03]
 0x2018450: setptrbyte                 02018459 = [data+00]
 0x2018456: addvar                     [8001] += 0000
-0x201845b: loadbytefromptr            [data+00] = [data+20375da]
+0x201845b: loadbytefromptr            [data+00] = [020375da]
 0x2018461: setptrbyte                 02018480 = [data+00]
-0x2018467: loadbytefromptr            [data+00] = [data+20375db]
+0x2018467: loadbytefromptr            [data+00] = [020375db]
 0x201846d: setptrbyte                 02018481 = [data+00]
 0x2018473: setvar                     [8001] = 0000
 0x2018478: setvar                     [8002] = 0029
@@ -90,13 +101,14 @@
 0x2018482: subvar                     [8002] -= 0001
 0x2018487: compare_var_to_value       [8002] == 0000
 0x201848c: goto_if                    COND:2, 0201847d
+
 0x2018492: addvar                     [8001] += 1145
-0x2018497: loadbytefromptr            [data+00] = [data+2021dc8]
+0x2018497: loadbytefromptr            [data+00] = [STRING_CHAR_04]
 0x201849d: setptrbyte                 020184a6 = [data+00]
 0x20184a3: addvar                     [8001] += 0000
-0x20184a8: loadbytefromptr            [data+00] = [data+20375da]
+0x20184a8: loadbytefromptr            [data+00] = [020375da]
 0x20184ae: setptrbyte                 020184cd = [data+00]
-0x20184b4: loadbytefromptr            [data+00] = [data+20375db]
+0x20184b4: loadbytefromptr            [data+00] = [020375db]
 0x20184ba: setptrbyte                 020184ce = [data+00]
 0x20184c0: setvar                     [8001] = 0000
 0x20184c5: setvar                     [8002] = 0043
@@ -104,13 +116,14 @@
 0x20184cf: subvar                     [8002] -= 0001
 0x20184d4: compare_var_to_value       [8002] == 0000
 0x20184d9: goto_if                    COND:2, 020184ca
+
 0x20184df: addvar                     [8001] += 12df
-0x20184e4: loadbytefromptr            [data+00] = [data+2021dc9]
+0x20184e4: loadbytefromptr            [data+00] = [STRING_CHAR_05]
 0x20184ea: setptrbyte                 020184f3 = [data+00]
 0x20184f0: addvar                     [8001] += 0000
-0x20184f5: loadbytefromptr            [data+00] = [data+20375da]
+0x20184f5: loadbytefromptr            [data+00] = [020375da]
 0x20184fb: setptrbyte                 0201851a = [data+00]
-0x2018501: loadbytefromptr            [data+00] = [data+20375db]
+0x2018501: loadbytefromptr            [data+00] = [020375db]
 0x2018507: setptrbyte                 0201851b = [data+00]
 0x201850d: setvar                     [8001] = 0000
 0x2018512: setvar                     [8002] = 0065
@@ -118,13 +131,14 @@
 0x201851c: subvar                     [8002] -= 0001
 0x2018521: compare_var_to_value       [8002] == 0000
 0x2018526: goto_if                    COND:2, 02018517
+
 0x201852c: addvar                     [8001] += 0dfd
-0x2018531: loadbytefromptr            [data+00] = [data+2021dca]
+0x2018531: loadbytefromptr            [data+00] = [STRING_CHAR_06]
 0x2018537: setptrbyte                 02018540 = [data+00]
 0x201853d: addvar                     [8001] += 0000
-0x2018542: loadbytefromptr            [data+00] = [data+20375da]
+0x2018542: loadbytefromptr            [data+00] = [020375da]
 0x2018548: setptrbyte                 02018567 = [data+00]
-0x201854e: loadbytefromptr            [data+00] = [data+20375db]
+0x201854e: loadbytefromptr            [data+00] = [020375db]
 0x2018554: setptrbyte                 02018568 = [data+00]
 0x201855a: setvar                     [8001] = 0000
 0x201855f: setvar                     [8002] = 0059
@@ -132,13 +146,14 @@
 0x2018569: subvar                     [8002] -= 0001
 0x201856e: compare_var_to_value       [8002] == 0000
 0x2018573: goto_if                    COND:2, 02018564
+
 0x2018579: addvar                     [8001] += 13af
-0x201857e: loadbytefromptr            [data+00] = [data+2021dcb]
+0x201857e: loadbytefromptr            [data+00] = [STRING_CHAR_07]
 0x2018584: setptrbyte                 0201858d = [data+00]
 0x201858a: addvar                     [8001] += 0000
-0x201858f: loadbytefromptr            [data+00] = [data+20375da]
+0x201858f: loadbytefromptr            [data+00] = [020375da]
 0x2018595: setptrbyte                 020185b4 = [data+00]
-0x201859b: loadbytefromptr            [data+00] = [data+20375db]
+0x201859b: loadbytefromptr            [data+00] = [020375db]
 0x20185a1: setptrbyte                 020185b5 = [data+00]
 0x20185a7: setvar                     [8001] = 0000
 0x20185ac: setvar                     [8002] = 008b
@@ -146,13 +161,14 @@
 0x20185b6: subvar                     [8002] -= 0001
 0x20185bb: compare_var_to_value       [8002] == 0000
 0x20185c0: goto_if                    COND:2, 020185b1
+
 0x20185c6: addvar                     [8001] += 149f
-0x20185cb: loadbytefromptr            [data+00] = [data+2021dcc]
+0x20185cb: loadbytefromptr            [data+00] = [STRING_CHAR_08]
 0x20185d1: setptrbyte                 020185da = [data+00]
 0x20185d7: addvar                     [8001] += 0000
-0x20185dc: loadbytefromptr            [data+00] = [data+20375da]
+0x20185dc: loadbytefromptr            [data+00] = [020375da]
 0x20185e2: setptrbyte                 02018601 = [data+00]
-0x20185e8: loadbytefromptr            [data+00] = [data+20375db]
+0x20185e8: loadbytefromptr            [data+00] = [020375db]
 0x20185ee: setptrbyte                 02018602 = [data+00]
 0x20185f4: setvar                     [8001] = 0000
 0x20185f9: setvar                     [8002] = 0047
@@ -160,13 +176,14 @@
 0x2018603: subvar                     [8002] -= 0001
 0x2018608: compare_var_to_value       [8002] == 0000
 0x201860d: goto_if                    COND:2, 020185fe
+
 0x2018613: addvar                     [8001] += 0fef
-0x2018618: loadbytefromptr            [data+00] = [data+2021dcd]
+0x2018618: loadbytefromptr            [data+00] = [STRING_CHAR_09]
 0x201861e: setptrbyte                 02018627 = [data+00]
 0x2018624: addvar                     [8001] += 0000
-0x2018629: loadbytefromptr            [data+00] = [data+20375da]
+0x2018629: loadbytefromptr            [data+00] = [020375da]
 0x201862f: setptrbyte                 0201864e = [data+00]
-0x2018635: loadbytefromptr            [data+00] = [data+20375db]
+0x2018635: loadbytefromptr            [data+00] = [020375db]
 0x201863b: setptrbyte                 0201864f = [data+00]
 0x2018641: setvar                     [8001] = 0000
 0x2018646: setvar                     [8002] = 0053
@@ -174,15 +191,20 @@
 0x2018650: subvar                     [8002] -= 0001
 0x2018655: compare_var_to_value       [8002] == 0000
 0x201865a: goto_if                    COND:2, 0201864b
+
+
+
 0x2018660: addvar                     [8001] += 0fb5
 0x2018665: copyvar                    [8003] = [8001]
+
+
 0x201866a: setvar                     [8001] = 0539
-0x201866f: loadbytefromptr            [data+00] = [data+2021dc4]
+0x201866f: loadbytefromptr            [data+00] = [STRING_CHAR_00]
 0x2018675: setptrbyte                 0201867e = [data+00]
 0x201867b: addvar                     [8001] += 0000
-0x2018680: loadbytefromptr            [data+00] = [data+20375da]
+0x2018680: loadbytefromptr            [data+00] = [020375da]
 0x2018686: setptrbyte                 020186a5 = [data+00]
-0x201868c: loadbytefromptr            [data+00] = [data+20375db]
+0x201868c: loadbytefromptr            [data+00] = [020375db]
 0x2018692: setptrbyte                 020186a6 = [data+00]
 0x2018698: setvar                     [8001] = 0000
 0x201869d: setvar                     [8002] = 003b
@@ -190,13 +212,14 @@
 0x20186a7: subvar                     [8002] -= 0001
 0x20186ac: compare_var_to_value       [8002] == 0000
 0x20186b1: goto_if                    COND:2, 020186a2
+
 0x20186b7: addvar                     [8001] += 0e75
-0x20186bc: loadbytefromptr            [data+00] = [data+2021dc5]
+0x20186bc: loadbytefromptr            [data+00] = [STRING_CHAR_01]
 0x20186c2: setptrbyte                 020186cb = [data+00]
 0x20186c8: addvar                     [8001] += 0000
-0x20186cd: loadbytefromptr            [data+00] = [data+20375da]
+0x20186cd: loadbytefromptr            [data+00] = [020375da]
 0x20186d3: setptrbyte                 020186f2 = [data+00]
-0x20186d9: loadbytefromptr            [data+00] = [data+20375db]
+0x20186d9: loadbytefromptr            [data+00] = [020375db]
 0x20186df: setptrbyte                 020186f3 = [data+00]
 0x20186e5: setvar                     [8001] = 0000
 0x20186ea: setvar                     [8002] = 00b5
@@ -204,13 +227,14 @@
 0x20186f4: subvar                     [8002] -= 0001
 0x20186f9: compare_var_to_value       [8002] == 0000
 0x20186fe: goto_if                    COND:2, 020186ef
+
 0x2018704: addvar                     [8001] += 11fb
-0x2018709: loadbytefromptr            [data+00] = [data+2021dc6]
+0x2018709: loadbytefromptr            [data+00] = [STRING_CHAR_02]
 0x201870f: setptrbyte                 02018718 = [data+00]
 0x2018715: addvar                     [8001] += 0000
-0x201871a: loadbytefromptr            [data+00] = [data+20375da]
+0x201871a: loadbytefromptr            [data+00] = [020375da]
 0x2018720: setptrbyte                 0201873f = [data+00]
-0x2018726: loadbytefromptr            [data+00] = [data+20375db]
+0x2018726: loadbytefromptr            [data+00] = [020375db]
 0x201872c: setptrbyte                 02018740 = [data+00]
 0x2018732: setvar                     [8001] = 0000
 0x2018737: setvar                     [8002] = 007f
@@ -218,13 +242,14 @@
 0x2018741: subvar                     [8002] -= 0001
 0x2018746: compare_var_to_value       [8002] == 0000
 0x201874b: goto_if                    COND:2, 0201873c
+
 0x2018751: addvar                     [8001] += 1237
-0x2018756: loadbytefromptr            [data+00] = [data+2021dc7]
+0x2018756: loadbytefromptr            [data+00] = [STRING_CHAR_03]
 0x201875c: setptrbyte                 02018765 = [data+00]
 0x2018762: addvar                     [8001] += 0000
-0x2018767: loadbytefromptr            [data+00] = [data+20375da]
+0x2018767: loadbytefromptr            [data+00] = [020375da]
 0x201876d: setptrbyte                 0201878c = [data+00]
-0x2018773: loadbytefromptr            [data+00] = [data+20375db]
+0x2018773: loadbytefromptr            [data+00] = [020375db]
 0x2018779: setptrbyte                 0201878d = [data+00]
 0x201877f: setvar                     [8001] = 0000
 0x2018784: setvar                     [8002] = 00a3
@@ -232,13 +257,14 @@
 0x201878e: subvar                     [8002] -= 0001
 0x2018793: compare_var_to_value       [8002] == 0000
 0x2018798: goto_if                    COND:2, 02018789
+
 0x201879e: addvar                     [8001] += 125f
-0x20187a3: loadbytefromptr            [data+00] = [data+2021dc8]
+0x20187a3: loadbytefromptr            [data+00] = [STRING_CHAR_04]
 0x20187a9: setptrbyte                 020187b2 = [data+00]
 0x20187af: addvar                     [8001] += 0000
-0x20187b4: loadbytefromptr            [data+00] = [data+20375da]
+0x20187b4: loadbytefromptr            [data+00] = [020375da]
 0x20187ba: setptrbyte                 020187d9 = [data+00]
-0x20187c0: loadbytefromptr            [data+00] = [data+20375db]
+0x20187c0: loadbytefromptr            [data+00] = [020375db]
 0x20187c6: setptrbyte                 020187da = [data+00]
 0x20187cc: setvar                     [8001] = 0000
 0x20187d1: setvar                     [8002] = 0067
@@ -246,13 +272,14 @@
 0x20187db: subvar                     [8002] -= 0001
 0x20187e0: compare_var_to_value       [8002] == 0000
 0x20187e5: goto_if                    COND:2, 020187d6
+
 0x20187eb: addvar                     [8001] += 107b
-0x20187f0: loadbytefromptr            [data+00] = [data+2021dc9]
+0x20187f0: loadbytefromptr            [data+00] = [STRING_CHAR_05]
 0x20187f6: setptrbyte                 020187ff = [data+00]
 0x20187fc: addvar                     [8001] += 0000
-0x2018801: loadbytefromptr            [data+00] = [data+20375da]
+0x2018801: loadbytefromptr            [data+00] = [020375da]
 0x2018807: setptrbyte                 02018826 = [data+00]
-0x201880d: loadbytefromptr            [data+00] = [data+20375db]
+0x201880d: loadbytefromptr            [data+00] = [020375db]
 0x2018813: setptrbyte                 02018827 = [data+00]
 0x2018819: setvar                     [8001] = 0000
 0x201881e: setvar                     [8002] = 00a3
@@ -260,13 +287,14 @@
 0x2018828: subvar                     [8002] -= 0001
 0x201882d: compare_var_to_value       [8002] == 0000
 0x2018832: goto_if                    COND:2, 02018823
+
 0x2018838: addvar                     [8001] += 1951
-0x201883d: loadbytefromptr            [data+00] = [data+2021dca]
+0x201883d: loadbytefromptr            [data+00] = [STRING_CHAR_06]
 0x2018843: setptrbyte                 0201884c = [data+00]
 0x2018849: addvar                     [8001] += 0000
-0x201884e: loadbytefromptr            [data+00] = [data+20375da]
+0x201884e: loadbytefromptr            [data+00] = [020375da]
 0x2018854: setptrbyte                 02018873 = [data+00]
-0x201885a: loadbytefromptr            [data+00] = [data+20375db]
+0x201885a: loadbytefromptr            [data+00] = [020375db]
 0x2018860: setptrbyte                 02018874 = [data+00]
 0x2018866: setvar                     [8001] = 0000
 0x201886b: setvar                     [8002] = 0095
@@ -274,13 +302,14 @@
 0x2018875: subvar                     [8002] -= 0001
 0x201887a: compare_var_to_value       [8002] == 0000
 0x201887f: goto_if                    COND:2, 02018870
+
 0x2018885: addvar                     [8001] += 1b47
-0x201888a: loadbytefromptr            [data+00] = [data+2021dcb]
+0x201888a: loadbytefromptr            [data+00] = [STRING_CHAR_07]
 0x2018890: setptrbyte                 02018899 = [data+00]
 0x2018896: addvar                     [8001] += 0000
-0x201889b: loadbytefromptr            [data+00] = [data+20375da]
+0x201889b: loadbytefromptr            [data+00] = [020375da]
 0x20188a1: setptrbyte                 020188c0 = [data+00]
-0x20188a7: loadbytefromptr            [data+00] = [data+20375db]
+0x20188a7: loadbytefromptr            [data+00] = [020375db]
 0x20188ad: setptrbyte                 020188c1 = [data+00]
 0x20188b3: setvar                     [8001] = 0000
 0x20188b8: setvar                     [8002] = 00c1
@@ -288,13 +317,14 @@
 0x20188c2: subvar                     [8002] -= 0001
 0x20188c7: compare_var_to_value       [8002] == 0000
 0x20188cc: goto_if                    COND:2, 020188bd
+
 0x20188d2: addvar                     [8001] += 151f
-0x20188d7: loadbytefromptr            [data+00] = [data+2021dcc]
+0x20188d7: loadbytefromptr            [data+00] = [STRING_CHAR_08]
 0x20188dd: setptrbyte                 020188e6 = [data+00]
 0x20188e3: addvar                     [8001] += 0000
-0x20188e8: loadbytefromptr            [data+00] = [data+20375da]
+0x20188e8: loadbytefromptr            [data+00] = [020375da]
 0x20188ee: setptrbyte                 0201890d = [data+00]
-0x20188f4: loadbytefromptr            [data+00] = [data+20375db]
+0x20188f4: loadbytefromptr            [data+00] = [020375db]
 0x20188fa: setptrbyte                 0201890e = [data+00]
 0x2018900: setvar                     [8001] = 0000
 0x2018905: setvar                     [8002] = 00d3
@@ -302,13 +332,14 @@
 0x201890f: subvar                     [8002] -= 0001
 0x2018914: compare_var_to_value       [8002] == 0000
 0x2018919: goto_if                    COND:2, 0201890a
+
 0x201891f: addvar                     [8001] += 14b1
-0x2018924: loadbytefromptr            [data+00] = [data+2021dcd]
+0x2018924: loadbytefromptr            [data+00] = [STRING_CHAR_09]
 0x201892a: setptrbyte                 02018933 = [data+00]
 0x2018930: addvar                     [8001] += 0000
-0x2018935: loadbytefromptr            [data+00] = [data+20375da]
+0x2018935: loadbytefromptr            [data+00] = [020375da]
 0x201893b: setptrbyte                 0201895a = [data+00]
-0x2018941: loadbytefromptr            [data+00] = [data+20375db]
+0x2018941: loadbytefromptr            [data+00] = [020375db]
 0x2018947: setptrbyte                 0201895b = [data+00]
 0x201894d: setvar                     [8001] = 0000
 0x2018952: setvar                     [8002] = 0097
@@ -316,6 +347,7 @@
 0x201895c: subvar                     [8002] -= 0001
 0x2018961: compare_var_to_value       [8002] == 0000
 0x2018966: goto_if                    COND:2, 02018957
+
 0x201896c: addvar                     [8001] += 13eb
 0x2018971: compare_var_to_value       [8003] == b0ef
 0x2018976: goto_if                    COND:2, 0201898d
