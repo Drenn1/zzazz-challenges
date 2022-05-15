@@ -29,6 +29,8 @@ def readFromSerial2(l):
     return data
 
 
+# "handleSend" & "handleRecv" should usually return the parameters given to them
+# unmodified, unless we want to mess with the traffic for evil purposes
 def runServer(handleSend, handleRecv):
     data_conn = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     data_conn.setsockopt(socket.IPPROTO_TCP, socket.TCP_NODELAY, 1)
